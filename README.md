@@ -1,38 +1,59 @@
 # 🚀 Business Automation Workflow (n8n)
 
-An end-to-end business automation workflow built using **n8n**, **Google Sheets**, **Groq AI**, **WhatsApp Cloud API**, and **Gmail** to automate lead management, customer communication, and CRM reporting.
+<p align="center">
+  <img src="Logo.png" alt="Business Automation Logo" width="180">
+</p>
+
+<p align="center">
+  <b>An End-to-End Business Automation Workflow built with n8n, Google Sheets, Groq AI, WhatsApp Cloud API, and Gmail.</b>
+</p>
 
 ---
 
 ## 📌 Project Overview
 
-This project automates the complete lead management process:
+This project automates the complete customer lead management process from lead capture to follow-up and reporting.
 
-- Capture leads using a Webhook
-- Store lead information in Google Sheets
-- Generate AI-powered follow-up messages using Groq AI
-- Send WhatsApp messages automatically
-- Update lead status in the CRM
-- Generate and email weekly CRM reports
+The workflow:
+
+- Captures leads using a Webhook
+- Stores lead information in Google Sheets
+- Generates AI-powered follow-up messages using Groq AI
+- Sends WhatsApp messages automatically
+- Updates CRM lead status
+- Generates and emails weekly CRM reports
 
 ---
 
 # 🏗 Workflow Architecture
 
-```
+```text
 Webhook
     │
     ▼
-Append Row (Google Sheets)
+Append Lead to Google Sheets
     │
     ▼
-Groq AI (HTTP Request)
+Generate AI Follow-up (Groq AI)
     │
     ▼
-WhatsApp Cloud API
+Send WhatsApp Message
     │
     ▼
-Update Lead Status
+Update Lead Status (Google Sheets)
+
+────────────────────────────
+
+Weekly Schedule Trigger
+    │
+    ▼
+Read CRM Data
+    │
+    ▼
+Generate Weekly Report
+    │
+    ▼
+Send Gmail Report
 ```
 
 ---
@@ -45,44 +66,38 @@ Update Lead Status
 - WhatsApp Cloud API
 - Gmail API
 - JavaScript
+- Webhooks
+- HTTP Request
 
 ---
 
 # 📁 Project Structure
 
-```
-business-automation/
-│
-├── assets/
-│   └── logo.png
-│
-├── docs/
-│   ├── architecture.png
-│   └── workflow.png
-│
-├── screenshots/
-│   ├── workflow-canvas.png
-│   ├── webhook-test.png
-│   ├── google-sheet.png
-│   ├── whatsapp-message.png
-│   ├── weekly-crm-report-email.png
-│   └── output.png
-│
+```text
+Business-Automation/
+
+├── Architecture.jpg
 ├── Business-Automation.json
+├── Google-Sheet.png
 ├── LICENSE
+├── Logo.png
 ├── README.md
+├── Webhook-Test.png
+├── Weekly-CRM-Report-Email.png
+├── Whatsapp-Message.jpeg
+├── Workflow.png
 └── .gitignore
 ```
 
 ---
 
-# 🚀 Features
+# ✨ Features
 
-## 1️⃣ Lead Capture Automation
+## 🔹 Lead Capture Automation
 
-- Receives new leads via Webhook
-- Saves lead details in Google Sheets
-- Stores:
+- Receives new leads using Webhook
+- Saves lead information into Google Sheets
+- Automatically records:
   - Name
   - Email
   - Phone
@@ -92,48 +107,51 @@ business-automation/
 
 ---
 
-## 2️⃣ AI WhatsApp Follow-up
+## 🤖 AI-Powered WhatsApp Follow-up
 
-- Sends lead details to Groq AI
+- Sends customer information to Groq AI
 - Generates personalized follow-up messages
-- Sends the generated message using WhatsApp Cloud API
+- Automatically sends the response through WhatsApp Cloud API
 
 ---
 
-## 3️⃣ CRM Status Update
+## 📋 CRM Status Update
 
-Automatically updates lead status after communication.
+Automatically updates lead status after sending the WhatsApp message.
 
 Example:
 
-```
-New → Contacted
+```text
+New
+   ↓
+Contacted
 ```
 
 ---
 
-## 4️⃣ Scheduled Lead Processing
+## ⏰ Scheduled Lead Processing
 
-Runs automatically using Schedule Trigger.
+Runs automatically using the Schedule Trigger.
 
 - Reads CRM data
-- Updates lead status
-- Maintains Google Sheets automatically
+- Processes existing leads
+- Updates Google Sheets
+- Keeps CRM synchronized
 
 ---
 
-## 5️⃣ Weekly CRM Report
+## 📧 Weekly CRM Report
 
-Every week:
+Every week the workflow automatically:
 
 - Reads all CRM records
-- Counts:
+- Calculates:
   - Total Leads
   - New Leads
-  - Contacted
+  - Contacted Leads
   - Follow-up 1
   - Follow-up 2
-  - Converted
+  - Converted Leads
 - Sends an automated report via Gmail
 
 ---
@@ -146,78 +164,158 @@ Every week:
 
 ---
 
-# 📸 Screenshots
+# 📸 Project Screenshots
 
-### Workflow
+## Workflow
 
-![Workflow](docs/workflow.png)
-
-### Architecture
-
-![Architecture](docs/architecture.png)
-
-### Google Sheet
-
-![Google Sheet](screenshots/google-sheet.png)
-
-### WhatsApp
-
-![WhatsApp](screenshots/whatsapp-message.png)
-
-### Gmail Report
-
-![Gmail](screenshots/weekly-crm-report-email.png)
+![Workflow](Workflow.png)
 
 ---
 
-# ▶️ How to Run
+## System Architecture
 
-1. Clone the repository
+![Architecture](Architecture.jpg)
 
+---
+
+## Webhook Test
+
+![Webhook Test](Webhook-Test.png)
+
+---
+
+## Google Sheet CRM
+
+![Google Sheet](Google-Sheet.png)
+
+---
+
+## WhatsApp Follow-up Message
+
+![WhatsApp Message](Whatsapp-Message.jpeg)
+
+---
+
+## Weekly CRM Report Email
+
+![Weekly CRM Report](Weekly-CRM-Report-Email.png)
+
+---
+
+# ▶️ Getting Started
+
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/parmarhemeen05/BUSINESS-AUTOMATION.git
 ```
-git clone https://github.com/yourusername/business-automation.git
-```
 
-2. Open n8n.
+---
 
-3. Import
+## 2. Open n8n
 
-```
+Start your local or cloud n8n instance.
+
+---
+
+## 3. Import Workflow
+
+Import:
+
+```text
 Business-Automation.json
 ```
 
-4. Configure:
+---
 
-- Google Sheets Credentials
+## 4. Configure Credentials
+
+Replace the placeholder credentials with your own:
+
+- Google Sheets OAuth2
 - Groq API Key
-- WhatsApp Cloud API
-- Gmail Credentials
+- WhatsApp Cloud API Token
+- Gmail OAuth2
 
-5. Execute the workflow.
+> **Important:** Never upload your real API keys or access tokens to GitHub.
 
 ---
 
-# 📌 Future Improvements
+## 5. Execute Workflow
 
-- CRM Dashboard
-- Slack Notifications
-- SMS Integration
-- AI Lead Scoring
-- Multi-user Support
+Run the Webhook or Schedule Trigger to test the automation.
+
+---
+
+# 🔄 Workflow Summary
+
+```
+New Lead
+     │
+     ▼
+Webhook Trigger
+     │
+     ▼
+Google Sheets
+     │
+     ▼
+Groq AI
+     │
+     ▼
+WhatsApp Message
+     │
+     ▼
+CRM Updated
+
+Weekly Trigger
+     │
+     ▼
+Read CRM
+     │
+     ▼
+Generate Report
+     │
+     ▼
+Gmail Report
+```
+
+---
+
+# 🚀 Future Improvements
+
+- 📊 Interactive CRM Dashboard
+- 🤖 AI Lead Scoring
+- 💬 Slack Notifications
+- 📱 SMS Integration
+- 👥 Multi-user CRM
+- 📈 Analytics Dashboard
+- 🌐 Multi-language Support
 
 ---
 
 # 👨‍💻 Author
 
-**Hemeen Parmar**
+## Hemeen Parmar
 
-Computer Science & Engineering Student
-DevOps & Automation Enthusiast
+**Computer Science & Engineering Student**
 
-GitHub: https://github.com/parmarhemeen05
+**DevOps • Cloud • Automation • AI Workflows**
+
+GitHub:
+https://github.com/parmarhemeen05
 
 ---
 
 # 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
+
+See the **LICENSE** file for more information.
+
+---
+
+## ⭐ Support
+
+If you found this project useful, please consider giving it a ⭐ on GitHub.
+
+It helps others discover the project and motivates future improvements.
