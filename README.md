@@ -164,44 +164,6 @@ Every week the workflow automatically:
 
 ---
 
-# 📸 Project Screenshots
-
-## Workflow
-
-![Workflow](Workflow.png)
-
----
-
-## System Architecture
-
-![Architecture](Architecture.jpg)
-
----
-
-## Webhook Test
-
-![Webhook Test](Webhook-Test.png)
-
----
-
-## Google Sheet CRM
-
-![Google Sheet](Google-Sheet.png)
-
----
-
-## WhatsApp Follow-up Message
-
-![WhatsApp Message](Whatsapp-Message.jpeg)
-
----
-
-## Weekly CRM Report Email
-
-![Weekly CRM Report](Weekly-CRM-Report-Email.png)
-
----
-
 # ▶️ Getting Started
 
 ## 1. Clone Repository
